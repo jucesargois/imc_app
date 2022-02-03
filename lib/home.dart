@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
-  Home({Key? key}) : super(key: key);
+  const Home({Key? key}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
@@ -15,7 +15,6 @@ class _HomeState extends State<Home> {
 
   double resultado = 0;
   calculaImc(int? peso, double? altura) {
-    double resultado;
     if (peso != null && altura != null) {
       return resultado = peso / (altura * altura);
     }
@@ -92,7 +91,7 @@ class _HomeState extends State<Home> {
               const SizedBox(
                 height: 30,
               ),
-              Container(
+              SizedBox(
                 width: 150,
                 child: ElevatedButton(
                   onPressed: () {
@@ -134,7 +133,7 @@ class _HomeState extends State<Home> {
                     child: Center(
                       child: Text(
                         '${classificacaoImc(resultado)}',
-                        style: TextStyle(color: Colors.white, fontSize: 25),
+                        style: const TextStyle(color: Colors.white, fontSize: 25),
                       ),
                     ),
                   ))
