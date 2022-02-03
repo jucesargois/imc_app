@@ -8,16 +8,36 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  bool value = false;
   int? peso;
 
   double? altura;
 
-  var resultado;
-
+  double resultado = 0;
   calculaImc(int? peso, double? altura) {
-    var resultado;
+    double resultado;
     if (peso != null && altura != null) {
       return resultado = peso / (altura * altura);
+    }
+  }
+
+  classificacaoImc(var resultado) {
+    if (resultado != null && resultado < 16) {
+      return 'Magreza grau III'; //vermelho
+    } else if (resultado >= 16.0 && resultado <= 16.9) {
+      return 'Magreza grau II'; //vermelho
+    } else if (resultado >= 17.0 && resultado <= 18.4) {
+      return 'Magreza grau I'; //amarelo
+    } else if (resultado >= 18.5 && resultado <= 24.9) {
+      return 'Adequado'; //verde
+    } else if (resultado >= 25.0 && resultado <= 29.9) {
+      return 'Pré-obeso'; //amarelo
+    } else if (resultado >= 30.0 && resultado <= 34.9) {
+      return 'Obesidade grau I'; //vermelho
+    } else if (resultado >= 35.0 && resultado <= 39.9) {
+      return 'Obesidade grau II'; //vermelho
+    } else if (resultado >= 40.0) {
+      return 'Obesidade grau III'; //vermelho
     }
   }
 
@@ -36,7 +56,7 @@ class _HomeState extends State<Home> {
           child: Column(
             children: [
               const SizedBox(
-                height: 130,
+                height: 120,
               ),
               const Center(
                 child: Text(
@@ -47,8 +67,9 @@ class _HomeState extends State<Home> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
+                  textAlign: TextAlign.center,
                   controller: pesocontroller,
-                  decoration: const InputDecoration(hintText: 'Peso'),
+                  decoration: const InputDecoration(hintText: 'ex..78'),
                 ),
               ),
               const SizedBox(
@@ -63,8 +84,9 @@ class _HomeState extends State<Home> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextField(
+                  textAlign: TextAlign.center,
                   controller: alturacontroller,
-                  decoration: const InputDecoration(hintText: 'altura'),
+                  decoration: const InputDecoration(hintText: 'ex..1.75'),
                 ),
               ),
               const SizedBox(
@@ -82,6 +104,9 @@ class _HomeState extends State<Home> {
                     setState(() {
                       resultado;
                     });
+                    setState(() {
+                      value = true;
+                    });
                   },
                   child: const Text('Calcular'),
                 ),
@@ -89,7 +114,30 @@ class _HomeState extends State<Home> {
               const SizedBox(
                 height: 30,
               ),
-              Text("Resultado: $resultado")
+              Center(
+                  child: Text(
+                "Resultado: ${resultado.toStringAsFixed(2)}",
+                style: const TextStyle(fontSize: 25),
+              )),
+              const SizedBox(
+                height: 120,
+              ),
+              Visibility(
+                  visible: value,
+                  child: Container(
+                    color: classificacaoImc(resultado) == 'Adequado'
+                        ? Colors.green
+                        : Colors.red,
+                        
+                    width: double.infinity,
+                    height: 50,
+                    child: Center(
+                      child: Text(
+                        '${classificacaoImc(resultado)}',
+                        style: TextStyle(color: Colors.white, fontSize: 25),
+                      ),
+                    ),
+                  ))
             ],
           ),
         ),
