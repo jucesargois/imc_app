@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   Home({Key? key}) : super(key: key);
 
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
   int? peso;
+
   double? altura;
+
   var resultado;
+
   calculaImc(int? peso, double? altura) {
     var resultado;
     if (peso != null && altura != null) {
@@ -14,7 +22,9 @@ class Home extends StatelessWidget {
   }
 
   TextEditingController pesocontroller = TextEditingController();
+
   TextEditingController alturacontroller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -69,6 +79,9 @@ class Home extends StatelessWidget {
                     double? alturaconv = double.tryParse(alturacontroller.text);
                     altura = alturaconv;
                     resultado = calculaImc(peso, altura);
+                    setState(() {
+                      resultado;
+                    });
                   },
                   child: const Text('Calcular'),
                 ),
