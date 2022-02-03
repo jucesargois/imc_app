@@ -48,96 +48,147 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Center(child: Text('App Imc ')),
-        ),
+        backgroundColor: Color(0xFF546e7a),
         body: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 120,
-              ),
-              const Center(
-                child: Text(
-                  'Peso',
-                  style: TextStyle(fontSize: 28),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 50,
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextField(
-                  textAlign: TextAlign.center,
-                  controller: pesocontroller,
-                  decoration: const InputDecoration(hintText: 'ex..78'),
+                Row(
+                  children: [
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Column(
+                        children: [
+                          Icon(
+                            Icons.dark_mode_outlined,
+                            size: 60,
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      width: 280,
+                    ),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Image.asset(
+                        'assets/images/logo_app_imc.png',
+                        scale: 10,
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-              const SizedBox(
-                height: 100,
-              ),
-              const Center(
-                child: Text(
-                  'Altura',
-                  style: TextStyle(fontSize: 28),
+                const SizedBox(
+                  height: 110,
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextField(
-                  textAlign: TextAlign.center,
-                  controller: alturacontroller,
-                  decoration: const InputDecoration(hintText: 'ex..1.75'),
+                Container(
+                  color: Colors.red,
+                  child: Column(
+                    children: [
+                      const Center(
+                        child: Text(
+                          'Peso',
+                          style: TextStyle(fontSize: 28),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextField(
+                          textAlign: TextAlign.center,
+                          controller: pesocontroller,
+                          decoration: const InputDecoration(hintText: 'ex..78'),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              SizedBox(
-                width: 150,
-                child: ElevatedButton(
-                  onPressed: () {
-                    int? pesoconv = int.tryParse(pesocontroller.text);
-                    peso = pesoconv;
-                    double? alturaconv = double.tryParse(alturacontroller.text);
-                    altura = alturaconv;
-                    resultado = calculaImc(peso, altura);
-                    setState(() {
-                      resultado;
-                    });
-                    setState(() {
-                      value = true;
-                    });
-                  },
-                  child: const Text('Calcular'),
+                const SizedBox(
+                  height: 100,
                 ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Center(
+                Container(
+                  color: Colors.red,
+                  child: Column(
+                    children: [
+                      const Center(
+                        child: Text(
+                          'Altura',
+                          style: TextStyle(fontSize: 28),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextField(
+                          textAlign: TextAlign.center,
+                          controller: alturacontroller,
+                          decoration:
+                              const InputDecoration(hintText: 'ex..1.75'),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                SizedBox(
+                  width: 150,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      int? pesoconv = int.tryParse(pesocontroller.text);
+                      peso = pesoconv;
+                      double? alturaconv =
+                          double.tryParse(alturacontroller.text);
+                      altura = alturaconv;
+                      resultado = calculaImc(peso, altura);
+                      setState(
+                        () {
+                          resultado;
+                        },
+                      );
+                      setState(
+                        () {
+                          value = true;
+                        },
+                      );
+                    },
+                    child: const Text('Calcular'),
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Center(
                   child: Text(
-                "Resultado: ${resultado.toStringAsFixed(2)}",
-                style: const TextStyle(fontSize: 25),
-              )),
-              const SizedBox(
-                height: 120,
-              ),
-              Visibility(
+                    "Resultado: ${resultado.toStringAsFixed(2)}",
+                    style: const TextStyle(fontSize: 25),
+                  ),
+                ),
+                const SizedBox(
+                  height: 90,
+                ),
+                Visibility(
                   visible: value,
                   child: Container(
                     color: classificacaoImc(resultado) == 'Adequado'
                         ? Colors.green
                         : Colors.red,
-                        
                     width: double.infinity,
                     height: 50,
                     child: Center(
                       child: Text(
                         '${classificacaoImc(resultado)}',
-                        style: const TextStyle(color: Colors.white, fontSize: 25),
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 25),
                       ),
                     ),
-                  ))
-            ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
