@@ -10,10 +10,9 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   bool value = false;
   int? peso;
-
   double? altura;
-
   double resultado = 0;
+
   calculaImc(int? peso, double? altura) {
     if (peso != null && altura != null) {
       return resultado = peso / (altura * altura);
@@ -41,7 +40,6 @@ class _HomeState extends State<Home> {
   }
 
   TextEditingController pesocontroller = TextEditingController();
-
   TextEditingController alturacontroller = TextEditingController();
 
   @override
@@ -59,7 +57,7 @@ class _HomeState extends State<Home> {
                 ),
                 Row(
                   children: [
-                    Align(
+                    /* Align(
                       alignment: Alignment.bottomLeft,
                       child: Column(
                         children: [
@@ -69,9 +67,9 @@ class _HomeState extends State<Home> {
                           ),
                         ],
                       ),
-                    ),
+                    ),*/
                     SizedBox(
-                      width: 280,
+                      width: 340,
                     ),
                     Align(
                       alignment: Alignment.bottomRight,
@@ -86,21 +84,35 @@ class _HomeState extends State<Home> {
                   height: 110,
                 ),
                 Container(
-                  color: Colors.red,
+                  width: 150,
+                  height: 160,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
+                    ),
+                    color: Color(0xFF29434e),
+                  ),
                   child: Column(
                     children: [
-                      const Center(
-                        child: Text(
-                          'Peso',
-                          style: TextStyle(fontSize: 28),
-                        ),
+                      SizedBox(height: 30,),
+                      Text(
+                        'Peso',
+                        style: TextStyle(fontSize: 28, color: Colors.white),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: TextField(
+                          style: TextStyle(color: Colors.white,fontSize: 28),
                           textAlign: TextAlign.center,
                           controller: pesocontroller,
-                          decoration: const InputDecoration(hintText: 'ex..78'),
+                          decoration: const InputDecoration(
+                            hintText: 'ex..78',
+                            hintStyle: TextStyle(
+                              color: Colors.white,
+                            ),
+                          enabledBorder: InputBorder.none,
+                          focusedBorder: InputBorder.none,
+                          ),
                         ),
                       ),
                     ],
