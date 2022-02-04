@@ -46,7 +46,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Color(0xFF546e7a),
+        backgroundColor: Color(0xFF29434e),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -81,74 +81,152 @@ class _HomeState extends State<Home> {
                   ],
                 ),
                 const SizedBox(
-                  height: 110,
+                  height: 50,
                 ),
-                Container(
-                  width: 150,
-                  height: 160,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10),
-                    ),
-                    color: Color(0xFF29434e),
-                  ),
-                  child: Column(
-                    children: [
-                      SizedBox(height: 30,),
-                      Text(
-                        'Peso',
-                        style: TextStyle(fontSize: 28, color: Colors.white),
+                Align(
+                  alignment: Alignment(-0.70, -70.0),
+                  child: Container(
+                    width: 150,
+                    height: 160,
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color(0xFF546e7a),
+                          // spreadRadius: 5,
+                          //blurRadius: 7,
+                          offset: Offset(-5, 6), // changes position of shadow
+                        ),
+                      ],
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: TextField(
-                          style: TextStyle(color: Colors.white,fontSize: 28),
-                          textAlign: TextAlign.center,
-                          controller: pesocontroller,
-                          decoration: const InputDecoration(
-                            hintText: 'ex..78',
-                            hintStyle: TextStyle(
-                              color: Colors.white,
+                      color: Color(0xFF29434e),
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Text(
+                          'Peso',
+                          style: TextStyle(
+                              fontSize: 28,
+                              color: Color(0xFF819ca9),
+                              fontWeight: FontWeight.w500),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: TextField(
+                            style: TextStyle(color: Colors.white, fontSize: 28),
+                            textAlign: TextAlign.center,
+                            controller: pesocontroller,
+                            decoration: const InputDecoration(
+                              hintText: 'ex: 78',
+                              hintStyle: TextStyle(
+                                color: Color(0xFF819ca9),
+                              ),
+                              enabledBorder: InputBorder.none,
+                              focusedBorder: InputBorder.none,
                             ),
-                          enabledBorder: InputBorder.none,
-                          focusedBorder: InputBorder.none,
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(
-                  height: 100,
+                  height: 50,
                 ),
-                Container(
-                  color: Colors.red,
-                  child: Column(
-                    children: [
-                      const Center(
+                Align(
+                  alignment: Alignment(0.60, 0.0),
+                  child: Container(
+                    width: 150,
+                    height: 160,
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color(0xFF546e7a),
+                          // spreadRadius: 5,
+                          //blurRadius: 7,
+                          offset: Offset(-5, 6), // changes position of shadow
+                        ),
+                      ],
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10),
+                      ),
+                      color: Color(0xFF29434e),
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 30,
+                        ),
+                        const Center(
+                          child: Text(
+                            'Altura',
+                            style: TextStyle(
+                                fontSize: 28, color: Color(0xFF819ca9)),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: TextField(
+                            style: TextStyle(color: Colors.white, fontSize: 28),
+                            textAlign: TextAlign.center,
+                            controller: alturacontroller,
+                            decoration: const InputDecoration(
+                              hintText: 'ex..1.75',
+                              hintStyle: TextStyle(color: Color(0xFF819ca9)),
+                              enabledBorder: InputBorder.none,
+                              focusedBorder: InputBorder.none,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Align(
+                  alignment: Alignment(-0.85, 0.0),
+                  child: Visibility(
+                    visible: value,
+                    child: Container(
+                      width: 150,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color(0xFF546e7a),
+                            // spreadRadius: 5,
+                            //blurRadius: 7,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ],
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                        color: Color(0xFF29434e),
+                      ),
+                      child: Center(
                         child: Text(
-                          'Altura',
-                          style: TextStyle(fontSize: 28),
+                          "IMC: ${resultado.toStringAsFixed(2)}",
+                          style: const TextStyle(fontSize: 25, fontWeight: FontWeight.w600,color: Color(0xFF546e7a)),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: TextField(
-                          textAlign: TextAlign.center,
-                          controller: alturacontroller,
-                          decoration:
-                              const InputDecoration(hintText: 'ex..1.75'),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                 ),
                 const SizedBox(
-                  height: 30,
+                  height: 56,
                 ),
                 SizedBox(
                   width: 150,
                   child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        primary: Color(0xFF29434e), fixedSize: Size(40, 50)),
                     onPressed: () {
                       int? pesoconv = int.tryParse(pesocontroller.text);
                       peso = pesoconv;
@@ -167,29 +245,26 @@ class _HomeState extends State<Home> {
                         },
                       );
                     },
-                    child: const Text('Calcular'),
+                    child: const Text(
+                      'Calcular',
+                      style: TextStyle(fontSize: 20),
+                    ),
                   ),
                 ),
                 const SizedBox(
-                  height: 30,
-                ),
-                Center(
-                  child: Text(
-                    "Resultado: ${resultado.toStringAsFixed(2)}",
-                    style: const TextStyle(fontSize: 25),
-                  ),
-                ),
-                const SizedBox(
-                  height: 90,
+                  height: 70,
                 ),
                 Visibility(
                   visible: value,
                   child: Container(
-                    color: classificacaoImc(resultado) == 'Adequado'
-                        ? Colors.green
-                        : Colors.red,
                     width: double.infinity,
                     height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      color: classificacaoImc(resultado) == 'Adequado'
+                          ? Colors.green
+                          : Colors.red,
+                    ),
                     child: Center(
                       child: Text(
                         '${classificacaoImc(resultado)}',
