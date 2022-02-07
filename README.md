@@ -1,4 +1,6 @@
-# imc_app
+# imc_app <img align="center" alt="Jucesargois-kotlin" width="50" src="https://user-images.githubusercontent.com/69982713/152718872-836e0302-834b-42b7-a71e-9274eeb94659.png">
+
+
 
 Flutter/Dart (Autoral)
   <img align="center" alt="Jucesargois-kotlin" width="15" src="https://github.com/devicons/devicon/blob/master/icons/flutter/flutter-original.svg">
