@@ -6,11 +6,9 @@ Flutter/Dart (Autoral)
   <img align="center" alt="Jucesargois-kotlin" width="15" src="https://github.com/devicons/devicon/blob/master/icons/flutter/flutter-original.svg">
   <img align="center" alt="Jucesargois-Ts" width="15" src="https://img.icons8.com/color/48/000000/dart.png">
 
-## Getting Started
+## Sobre
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
+Este projeto tem como objetivo a criação de um aplicativo para o cálculo de imc(Índice de massa corporal), conta com uma tela com campos para inserção de peso e altura, conta com um botão para calcular os dados inseridos, conta com campo para o resultado do imc e campo para sinalização do grau de classificação de acordo com o imc apresentado. 
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
