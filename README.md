@@ -10,9 +10,8 @@ Flutter/Dart (Autoral)
 
 Este projeto tem como objetivo a criação de um aplicativo para o cálculo de imc(Índice de massa corporal), conta com uma tela com campos para inserção de peso e altura, conta com um botão para calcular os dados inseridos, conta com campo para o resultado do imc e campo para sinalização do grau de classificação de acordo com o imc apresentado. 
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Funcionalidades.
+- Cálculo imc.
+- Faixas de Classificação para o imc apresentado.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Imagens do app. 
