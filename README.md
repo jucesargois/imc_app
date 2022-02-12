@@ -15,3 +15,10 @@ Este projeto tem como objetivo a criação de um aplicativo para o cálculo de i
 - Faixas de Classificação para o imc apresentado.
 
 ## Imagens do app. 
+<img src="https://user-images.githubusercontent.com/69982713/152722934-6b610366-92bd-43c9-9682-d4408496a19f.png" width="250" />,
+<img src="https://user-images.githubusercontent.com/69982713/152722985-9d4bbf6f-99d3-408e-9f89-9c3398e9fb03.png" width="250" />,
+<img src="https://user-images.githubusercontent.com/69982713/152723029-0c4a9076-06e7-45ae-9ff8-56051674c2df.png" width="250" />,
+<img src="https://user-images.githubusercontent.com/69982713/152723105-5442ba75-8f75-4f5b-92bf-c18e0ef548da.png" width="250" />
+
+
+
