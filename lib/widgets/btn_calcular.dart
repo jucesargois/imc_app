@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 // ignore: must_be_immutable
 class CalcularWidget extends StatelessWidget {
   CalcularWidget(this.onPressed, {Key? key}) : super(key: key);
+
   Function() onPressed;
+  
   @override
   Widget build(BuildContext context) {
     return SizedBox(

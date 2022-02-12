@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:imc_app/calcula_imc.dart';
+import 'package:imc_app/model/calcula_imc.dart';
 import 'widgets/box_altura.dart';
 import 'widgets/box_imc.dart';
 import 'widgets/box_peso.dart';

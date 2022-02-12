@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:imc_app/home.dart';
+import 'package:imc_app/model/classificacao_imc.dart';
 
-import '../classificacao_imc.dart';
 
 class ImcResultadoWidget extends StatelessWidget {
   const ImcResultadoWidget({Key? key}) : super(key: key);
